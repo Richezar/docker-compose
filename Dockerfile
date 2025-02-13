@@ -6,4 +6,6 @@ COPY ./stocks_products /stocks_products
 
 RUN pip install -r /stocks_products/requirements.txt
 
+RUN python manage.py collectstatic --noinput
+
 CMD ["sh", "-c", "sleep 10 && python manage.py migrate && gunicorn --bind 0.0.0.0:8000 stocks_products.wsgi:application"]

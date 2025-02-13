@@ -18,8 +18,8 @@ services:
     depends_on:
       - db
     environment:
-#      - SECRET_KEY=${SECRET_KEY}
-#      - DEBUG=${DEBUG}
+      - SECRET_KEY=${SECRET_KEY}
+      - DEBUG=${DEBUG}
       - POSTGRES_DB=${POSTGRES_DB}
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
@@ -30,6 +30,7 @@ services:
       - "80:80"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./stocks_products/staticfiles:/stocks_products/staticfiles
     depends_on:
       - web
 
